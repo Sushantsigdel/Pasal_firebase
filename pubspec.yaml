@@ -1,0 +1,74 @@
+name: pasal
+description: "A new Flutter project."
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+
+# packages
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # utility packages
+  http: ^1.2.2
+  intl: ^0.19.0
+  logger: ^2.4.0
+  url_launcher: ^6.3.0
+  flutter_native_splash: ^2.4.1
+  smooth_page_indicator: ^1.2.0+3
+  firebase_core: ^3.6.0
+  
+# Icons
+  iconsax: ^0.0.8
+  cupertino_icons: ^1.0.6
+  flutter_rating_bar: ^4.0.1
+
+
+# State Management
+  get: ^4.6.6
+  get_storage: ^2.1.1
+
+
+# Product Specific
+  readmore: ^3.0.0
+  carousel_slider: ^5.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+
+  assets:
+    - assets/images/
+    - assets/images/user/
+    - assets/images/reviews/
+    - assets/fonts/
+    - assets/logos/
+    - assets/images/on_boarding_images/
+    - assets/images/animations/
+    - assets/images/products/
+    - assets/icons/categories/
+    - assets/icons/brands/
+
+
+fonts:
+  - family: Poppins
+    fonts:
+      - asset: assets\fonts\Poppins-Bold.ttf
+        weight: 300
+      - asset: assets\fonts\Poppins-Regular.ttf
+        weight: 400
+      - asset: assets\fonts\Poppins-Medium.ttf
+        weight: 500
+      - asset: assets\fonts\Poppins-SemiBold.ttf
+        weight: 600
+      - asset: assets\fonts\Poppins-Bold.ttf
+        weight: 700

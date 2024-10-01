@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:pasal/common/widgets/texts/brand_title_text.dart';
+import 'package:pasal/utils/constants/colors.dart';
+import 'package:pasal/utils/constants/enums.dart';
+import 'package:pasal/utils/constants/sizes.dart';
+
+class PBrandTitleWithVerifiedIcon extends StatelessWidget {
+  const PBrandTitleWithVerifiedIcon({
+    super.key,
+    this.textColor,
+    required this.title,
+    this.maxLines = 1,
+    this.iconColor = PColors.primaryColor,
+    this.textAlign = TextAlign.center,
+    this.brandTextSize = TextSizes.small,
+  });
+
+  final String title;
+  final int maxLines;
+  final Color? textColor, iconColor;
+  final TextAlign? textAlign;
+  final TextSizes brandTextSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Flexible(
+          child: PBrandTitleText(
+            title: title,
+            color: textColor,
+            maxLines: maxLines,
+            textAlign: textAlign,
+            brandTextSize: brandTextSize,
+          ),
+        ),
+        const SizedBox(width: PSizes.xs),
+        Icon(
+          Iconsax.verify5,
+          color: iconColor,
+          size: PSizes.iconXs,
+        )
+      ],
+    );
+  }
+}
