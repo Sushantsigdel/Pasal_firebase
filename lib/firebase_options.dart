@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAxOlIAMKTZIXgmjwDbJOSmm9Mi387W8bo',
-    appId: '1:827644807709:web:10cc1fceef03c1f8f9d4f4',
-    messagingSenderId: '827644807709',
-    projectId: 'pasal-backend',
-    authDomain: 'pasal-backend.firebaseapp.com',
-    storageBucket: 'pasal-backend.appspot.com',
-    measurementId: 'G-5JT9Z5T0LS',
+    apiKey: 'AIzaSyCENap1lN2AJ1gff2OJiKu3e5I4irZkf_c',
+    appId: '1:845460618825:web:b083e844ab3fbabdc28998',
+    messagingSenderId: '845460618825',
+    projectId: 'pasal-firebase',
+    authDomain: 'pasal-firebase.firebaseapp.com',
+    storageBucket: 'pasal-firebase.appspot.com',
+    measurementId: 'G-4P51ML4H65',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAhppqAav5FMatcm2yPhS8BI46C7D8gvnM',
-    appId: '1:827644807709:android:d76dee8e78eca67af9d4f4',
-    messagingSenderId: '827644807709',
-    projectId: 'pasal-backend',
-    storageBucket: 'pasal-backend.appspot.com',
+    apiKey: 'AIzaSyB6_IkG92CDfR8g_t9cCaKBvhmHBascMtY',
+    appId: '1:845460618825:android:8d48ef2048219851c28998',
+    messagingSenderId: '845460618825',
+    projectId: 'pasal-firebase',
+    storageBucket: 'pasal-firebase.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDQBykoZD1xErcshw5HcJqUG3GOVmUErDs',
-    appId: '1:827644807709:ios:abd85d9a66fe9fd0f9d4f4',
-    messagingSenderId: '827644807709',
-    projectId: 'pasal-backend',
-    storageBucket: 'pasal-backend.appspot.com',
+    apiKey: 'AIzaSyCKE-hF0QPNIi3w3dkyM-iuokdbRWmHnXA',
+    appId: '1:845460618825:ios:10494bab9f2d56efc28998',
+    messagingSenderId: '845460618825',
+    projectId: 'pasal-firebase',
+    storageBucket: 'pasal-firebase.appspot.com',
     iosBundleId: 'com.example.pasal',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDQBykoZD1xErcshw5HcJqUG3GOVmUErDs',
-    appId: '1:827644807709:ios:abd85d9a66fe9fd0f9d4f4',
-    messagingSenderId: '827644807709',
-    projectId: 'pasal-backend',
-    storageBucket: 'pasal-backend.appspot.com',
+    apiKey: 'AIzaSyCKE-hF0QPNIi3w3dkyM-iuokdbRWmHnXA',
+    appId: '1:845460618825:ios:10494bab9f2d56efc28998',
+    messagingSenderId: '845460618825',
+    projectId: 'pasal-firebase',
+    storageBucket: 'pasal-firebase.appspot.com',
     iosBundleId: 'com.example.pasal',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAxOlIAMKTZIXgmjwDbJOSmm9Mi387W8bo',
-    appId: '1:827644807709:web:df60d0e6742aa735f9d4f4',
-    messagingSenderId: '827644807709',
-    projectId: 'pasal-backend',
-    authDomain: 'pasal-backend.firebaseapp.com',
-    storageBucket: 'pasal-backend.appspot.com',
-    measurementId: 'G-6QPKXCN9HX',
+    apiKey: 'AIzaSyCENap1lN2AJ1gff2OJiKu3e5I4irZkf_c',
+    appId: '1:845460618825:web:b1d69747f1214064c28998',
+    messagingSenderId: '845460618825',
+    projectId: 'pasal-firebase',
+    authDomain: 'pasal-firebase.firebaseapp.com',
+    storageBucket: 'pasal-firebase.appspot.com',
+    measurementId: 'G-FL61THYVWG',
   );
 }

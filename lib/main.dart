@@ -14,9 +14,9 @@ Future<void> main() async {
   await GetStorage.init();
 // Await Native Splash
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-// todo: init django api
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform
+  );
 // todo: auth
 
   runApp(const App());

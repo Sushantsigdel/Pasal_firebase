@@ -13,6 +13,8 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: PAppTheme.lightTheme,
       darkTheme: PAppTheme.darkTheme,
+
+      //  Simple loader or circular progress indicator
       home: const Scaffold(
         backgroundColor: PColors.primaryColor,
         body: Center(
