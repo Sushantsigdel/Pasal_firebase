@@ -63,7 +63,6 @@ class PSignupForm extends StatelessWidget {
           TextFormField(
             controller: controller.email,
             validator: (value) => PValidator.validateEmail(value),
-            expands: false,
             decoration: const InputDecoration(
                 labelText: PTexts.email, prefixIcon: Icon(Iconsax.direct)),
           ),
@@ -73,21 +72,27 @@ class PSignupForm extends StatelessWidget {
           TextFormField(
             controller: controller.phoneNumber,
             validator: (value) => PValidator.validatePhoneNumber(value),
-            expands: false,
             decoration: const InputDecoration(
                 labelText: PTexts.phoneNumber, prefixIcon: Icon(Iconsax.call)),
           ),
           const SizedBox(height: PSizes.spaceBtnInputFields),
 
           // Password
-          TextFormField(
-            controller: controller.password,
-            validator: (value) => PValidator.validatePassword(value),
-            expands: false,
-            decoration: const InputDecoration(
-                labelText: PTexts.password,
-                prefixIcon: Icon(Iconsax.password_check),
-                suffixIcon: Icon(Iconsax.eye_slash)),
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) => PValidator.validatePassword(value),
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
+                  labelText: PTexts.password,
+                  prefixIcon: const Icon(Iconsax.password_check),
+                  suffixIcon: IconButton(
+                      onPressed: () => controller.hidePassword.value =
+                          !controller.hidePassword.value,
+                      icon: Icon(controller.hidePassword.value
+                          ? Iconsax.eye_slash
+                          : Iconsax.eye))),
+            ),
           ),
           const SizedBox(
             height: PSizes.spaceBtnSections,

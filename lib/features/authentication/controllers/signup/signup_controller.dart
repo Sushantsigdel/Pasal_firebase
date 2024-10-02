@@ -8,7 +8,10 @@ import 'package:pasal/utils/popups/loaders.dart';
 class SignupController extends GetxController {
   static SignupController get instance => Get.find();
 
-// Variables
+  // Variables
+  final privacyPolicy = false.obs; // Privacy Policy checkbox
+
+  final hidePassword = true.obs; // Hide password
 
   final email = TextEditingController(); // Controller for email input
   final firstName = TextEditingController(); // Controller for firstname input
@@ -29,20 +32,19 @@ class SignupController extends GetxController {
 
       // Check internet connection
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
-        // Show error message
-        PFullScreenLoader.stopLoading();
-        return;
-      }
+      if (!isConnected) return;
 
       // Form Validation
-      if (!signupFormKey.currentState!.validate()) {
-        // Validation Failed
-        PFullScreenLoader.stopLoading();
-        return;
-      }
+      if (!signupFormKey.currentState!.validate()) return;
 
       // Privacy Policy checkbox
+      if (!privacyPolicy.value) {
+        PLoaders.warningSnackBar(
+            title: 'Accept Privacy Policy',
+            message:
+                'In order to proceed, you must have to read accept the privacy policy & terms of use');
+        return;
+      }
 
       // Register User in firebase authentication and save user in the firestore
 
