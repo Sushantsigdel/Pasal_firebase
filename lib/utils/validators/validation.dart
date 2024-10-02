@@ -1,4 +1,12 @@
 class PValidator {
+// Empty Text Field Validator
+  static String? validateEmptyText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required';
+    }
+    return null;
+  }
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required';
@@ -19,8 +27,8 @@ class PValidator {
       return 'Password is required';
     }
 
-    if (value.length < 6) {
-      return 'Password must be at least 6 characters long';
+    if (value.length < 8) {
+      return 'Password must be at least 8 characters long';
     }
 
     // check for uppercase

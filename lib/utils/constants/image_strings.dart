@@ -30,6 +30,7 @@ class PImages {
       "assets/images/animations/sammy-line-man-receives-a-mail.png";
   static const String deliveredIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String docerAnimation = "assets/animations/docer_animation.json";
 
 // Category Icons
   static const String sportIcon =
