@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pasal/data/repositories/authentication/authentication_repository.dart';
 import 'package:pasal/utils/constants/image_strings.dart';
 import 'package:pasal/utils/helpers/network_manager.dart';
 import 'package:pasal/utils/popups/full_screen_loader.dart';
@@ -47,6 +48,9 @@ class SignupController extends GetxController {
       }
 
       // Register User in firebase authentication and save user in the firestore
+      final user = await AuthenticationRepository.instance
+          .registerWithEmailAndPassword(
+              email.text.trim(), password.text.trim());
 
       // Save Auth and user data in local storage
 
