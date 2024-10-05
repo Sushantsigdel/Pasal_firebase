@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pasal/data/repositories/authentication/authentication_repository.dart';
+import 'package:pasal/data/repositories/user/user_repository.dart';
+import 'package:pasal/features/authentication/screens/signup/verify_email.dart';
+import 'package:pasal/features/personalization/models/user_model.dart';
 import 'package:pasal/utils/constants/image_strings.dart';
 import 'package:pasal/utils/helpers/network_manager.dart';
 import 'package:pasal/utils/popups/full_screen_loader.dart';
@@ -33,10 +36,19 @@ class SignupController extends GetxController {
 
       // Check internet connection
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
+      if (!isConnected) {
+        // Remove loader
+        PFullScreenLoader.stopLoading();
+        return;
+      }
+      ;
 
       // Form Validation
-      if (!signupFormKey.currentState!.validate()) return;
+      if (!signupFormKey.currentState!.validate()) {
+        // Remove loader
+        PFullScreenLoader.stopLoading();
+        return;
+      }
 
       // Privacy Policy checkbox
       if (!privacyPolicy.value) {
@@ -48,21 +60,40 @@ class SignupController extends GetxController {
       }
 
       // Register User in firebase authentication and save user in the firestore
-      final user = await AuthenticationRepository.instance
+      final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
 
       // Save Auth and user data in local storage
+      final newUser = UserModel(
+        id: userCredential.user!.uid,
+        firstName: firstName.text.trim(),
+        lastName: lastName.text.trim(),
+        email: email.text.trim(),
+        username: username.text.trim(),
+        phoneNumber: phoneNumber.text.trim(),
+        profilePicture: '',
+      );
 
-      // Show Success message
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
 
-      // Redirect to verify email screen
-    } catch (e) {
-      // Show Error message to the user
-      PLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-    } finally {
       // Remove loader
       PFullScreenLoader.stopLoading();
+
+      // Show Success message
+      PLoaders.successSnackBar(
+          title: 'Welcome ${newUser.fullName}',
+          message: 'Your account has been created successfully');
+
+      // Redirect to verify email screen
+      Get.to(() => const VerifyEmailScreen());
+    } catch (e) {
+      // Remove loader
+      PFullScreenLoader.stopLoading();
+
+      // Show Error message to the user
+      PLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 }

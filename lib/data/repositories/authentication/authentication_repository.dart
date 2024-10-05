@@ -40,7 +40,7 @@ class AuthenticationRepository extends GetxController {
       return await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      throw PFirebaseAuthException(e.code).message;
+      throw PFirebaseException(e.code).message;         //TODO: change this to a custom exception PFirebaseAuthException
     } on FirebaseException catch (e) {
       throw PFirebaseException(e.code).message;
     } on FormatException catch (_) {
