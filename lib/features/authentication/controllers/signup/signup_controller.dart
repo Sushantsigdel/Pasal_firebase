@@ -28,7 +28,7 @@ class SignupController extends GetxController {
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
 // Signup
-  Future<void> signUp() async {
+  void signUp() async {
     try {
       // Loader
       PFullScreenLoader.openLoadingDialog(
