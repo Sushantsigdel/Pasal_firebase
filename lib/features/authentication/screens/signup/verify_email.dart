@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pasal/common/widgets/success_screen/success_screen.dart';
-import 'package:pasal/features/authentication/screens/login/login.dart';
+import 'package:pasal/data/repositories/authentication/authentication_repository.dart';
+import 'package:pasal/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:pasal/utils/constants/image_strings.dart';
 import 'package:pasal/utils/constants/sizes.dart';
 import 'package:pasal/utils/constants/text_strings.dart';
 import 'package:pasal/utils/helpers/helper_functions.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       // The close icon in the appbar is used to log out the user and redirect them to the login screen.
       // This approach is taken to prevent the user from going back to the signup screen after they have signed up.
@@ -22,7 +25,8 @@ class VerifyEmailScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () =>
+                  Get.offAll(() => AuthenticationRepository.instance.logout()),
               icon: const Icon(CupertinoIcons.clear)),
         ],
       ),
@@ -43,7 +47,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: PSizes.spaceBtnItems),
-              Text('info@pasal.com',
+              Text(email ?? '',
                   style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: PSizes.spaceBtnItems),
@@ -56,21 +60,15 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(
-                          () => SuccessScreen(
-                            image: PImages.staticSuccessIllustration,
-                            title: PTexts.yourAccountCreatedTitle,
-                            subTitle: PTexts.yourAccountCreatedSubtitle,
-                            onPressed: () => Get.to(() => const LoginScreen()),
-                          ),
-                        ),
+                    onPressed: () => controller.checkEmailVerificationStatus(),
                     child: const Text(PTexts.pContinue)),
               ),
               const SizedBox(height: PSizes.spaceBtnItems),
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () {}, child: const Text(PTexts.resendEmail)))
+                      onPressed: () => controller.sendEmailVerification(),
+                      child: const Text(PTexts.resendEmail)))
             ],
           ),
         ),
