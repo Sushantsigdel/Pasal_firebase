@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pasal/features/personalization/models/user_model.dart';
-import 'package:pasal/utils/exception/firebase_auth_exception.dart';
+import 'package:pasal/utils/exceptions/firebase_auth_exception.dart';
 
 // Repository class for user related operations
 

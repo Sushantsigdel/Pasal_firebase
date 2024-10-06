@@ -30,7 +30,8 @@ class PImages {
       "assets/images/animations/sammy-line-man-receives-a-mail.png";
   static const String deliveredIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
-  static const String docerAnimation = "assets/animations/docer_animation.json";
+  static const String docerAnimation =
+      "assets/animations/141594-animation-of-docer.json";
 
 // Category Icons
   static const String sportIcon =
@@ -59,11 +60,19 @@ class PImages {
   static const String promoBanner3 =
       "assets/images/products/promo-banner-3.png";
   static const String promoBanner4 = "assets/images/products/banner_3.jpg";
+  static const String banner1 = "assets/images/banners/banner_1.jpg";
+  static const String banner2 = "assets/images/banners/banner_2.jpg";
+  static const String banner3 = "assets/images/banners/banner_3.jpg";
+  static const String banner4 = "assets/images/banners/banner_4.jpg";
+  static const String banner5 = "assets/images/banners/banner_5.jpg";
+  static const String banner6 = "assets/images/banners/banner_6.jpg";
+  static const String banner7 = "assets/images/banners/banner_7.jpg";
+  static const String banner8 = "assets/images/banners/banner_8.jpg";
 
   // User Profile Image
   static const String user = "assets/images/user/user.png";
 
-  // Product Images
+  // review product Images
   static const String userProfileImage1 =
       "assets/images/reviews/review_profile_image_1.jpg";
   static const String userProfileImage2 =
