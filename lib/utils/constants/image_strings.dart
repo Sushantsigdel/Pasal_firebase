@@ -45,7 +45,7 @@ class PImages {
   static String pencilAnimation =
       "assets/images/animations/140429-pencil-drawing.json";
   static String docerAnimation =
-      "assets/animations/141594-animation-of-docer.json";
+      "assets/images/animations/141594-animation-of-docer.json";
   static String searchAnimation =
       "assets/images/ animations/72785-searching.json";
   static String emptyAnimation =
@@ -59,11 +59,11 @@ class PImages {
   static String paymentSuccessfulAnimation =
       "assets/images/animations/120978-payment-successful.json";
   static String loadingJuggleAnimation =
-      "assets/Images/animations/141397/loading-juggle.json";
+      "assets/images/animations/141397/loading-juggle.json";
   static String cloudUploadingAnimation =
       " assets/images/animations/cloud-uploading-animation.json ";
   static String loaderAnimation =
-      "assets/ images/ animations/ loader-animation.json";
+      "assets/images/animations/loader-animation.json";
 
 // Category Icons
   static const String sportIcon =
