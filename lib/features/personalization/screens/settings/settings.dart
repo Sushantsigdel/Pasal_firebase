@@ -6,6 +6,7 @@ import 'package:pasal/common/widgets/custom_shapes/containers/primary_header_con
 import 'package:pasal/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:pasal/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:pasal/common/widgets/texts/section_heading.dart';
+import 'package:pasal/data/repositories/authentication/authentication_repository.dart';
 import 'package:pasal/features/personalization/screens/address/adress.dart';
 import 'package:pasal/features/personalization/screens/profile/profile.dart';
 import 'package:pasal/features/shop/cart/cart.dart';
@@ -114,13 +115,19 @@ class SettingScreen extends StatelessWidget {
                       subTitle: 'Set image quality to be seen',
                       trailing: Switch(value: false, onChanged: (value) {})),
 
-                  // Logout Button
                   const SizedBox(height: PSizes.spaceBtnSections),
+
+                  // Logout Button
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {}, child: const Text('Logout')),
+                      onPressed: () async {
+                        await AuthenticationRepository.instance.logout();
+                      },
+                      child: const Text('Logout'),
+                    ),
                   ),
+
                   const SizedBox(height: PSizes.spaceBtnSections * 2.5),
                 ],
               ),

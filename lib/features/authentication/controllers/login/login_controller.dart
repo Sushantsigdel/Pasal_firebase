@@ -50,6 +50,9 @@ class LoginController extends GetxController {
       final userCredentials = await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
+      // Save user record
+      await userController.saveUserRecord(userCredentials); 
+
       // Stop loading
       PFullScreenLoader.stopLoading();
 
